@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-bg: #0A0E14;
+  --color-royal-surface: #151B23;
+  --color-royal-primary: #FF9933;
+  --color-royal-secondary: #D4AF37;
+  --color-royal-success: #50C878;
+  --color-royal-danger: #FF4C4C;
+  --color-royal-text: #F0F0F0;
+  --color-royal-muted: #A0A0A0;
+  
+  --font-inter: "Inter", sans-serif;
+  
+  --background-image-royal-gradient: linear-gradient(135deg, #FF9933 0%, #D4AF37 100%);
+}
+
+@layer base {
+  body {
+    @apply bg-royal-bg text-royal-text font-inter antialiased overflow-x-hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-royal-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-royal-primary/20 rounded-full hover:bg-royal-primary/40 transition-colors;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-royal-gradient text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-royal-primary/20 hover:scale-105 active:scale-95 transition-all duration-200;
+  }
+  
+  .card-royal {
+    @apply bg-royal-surface border border-white/5 rounded-3xl p-6 shadow-xl;
+  }
+  
+  .input-royal {
+    @apply w-full bg-royal-bg border border-white/5 rounded-2xl p-4 text-white focus:outline-none focus:border-royal-primary/50 transition-colors;
+  }
+
+  .stat-value {
+    @apply text-3xl font-black text-royal-primary;
+  }
+  
+  .stat-label {
+    @apply text-sm text-royal-muted font-medium mb-1;
+  }
+}
